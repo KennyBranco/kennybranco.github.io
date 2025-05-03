@@ -9,41 +9,58 @@ body {
 }
 
 .container {
-    max-width: 210mm; /* A4 width */
+    max-width: 210mm; /* A4 width approx */
     margin: 20px auto;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 15mm;
 }
 
+/* Language Selector */
+.language-selector {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.lang-btn {
+    background-color: #eee;
+    border: none;
+    padding: 8px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.lang-btn:hover {
+    background-color: #ddd;
+}
+
+.lang-btn.active {
+    background-color: #007bff; /* Or a color matching the CV theme */
+    color: white;
+}
+
+/* CV Page Layout */
 .cv-page {
     display: flex;
-    padding: 20mm 15mm; /* A4 padding */
-    min-height: 297mm; /* A4 height - adjust as needed */
-    box-sizing: border-box;
+    flex-direction: row;
 }
 
-/* Add page break between language versions for printing */
-#cv-en {
-    page-break-before: always;
-}
-
-/* Columns */
 .left-column {
-    width: 35%;
+    width: 30%;
     padding-right: 20px;
     border-right: 1px solid #eee;
-    box-sizing: border-box; /* Added for robustness */
-    flex-shrink: 0; /* Prevent shrinking */
 }
 
 .right-column {
-    width: 65%;
+    width: 70%;
     padding-left: 20px;
-    box-sizing: border-box; /* Added for robustness */
-    flex-shrink: 0; /* Prevent shrinking */
 }
 
-/* Left Column Elements */
 .profile-pic-container {
     text-align: center;
     margin-bottom: 20px;
@@ -57,125 +74,111 @@ body {
     border: 3px solid #eee;
 }
 
-.left-column h2 {
-    color: #007bff; /* Blue accent color */
-    border-bottom: 2px solid #007bff;
+/* Sections */
+h2 {
+    color: #0056b3; /* Theme color */
+    border-bottom: 2px solid #0056b3;
     padding-bottom: 5px;
     margin-top: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     font-size: 1.2em;
 }
 
-.contact-info p, .skills ul, .languages ul, .additional-info p {
+.left-column h2 {
+    font-size: 1.1em;
+}
+
+.contact-info p,
+.additional-info p,
+.skills ul,
+.languages ul,
+.certifications ul {
     margin-bottom: 10px;
     font-size: 0.9em;
 }
 
-.contact-info strong, .additional-info strong {
-    display: inline-block;
-    min-width: 80px; /* Align labels */
-}
-
-.skills ul, .languages ul {
+.skills ul, .languages ul, .certifications ul {
     list-style: none;
-    padding: 0;
+    padding-left: 0;
 }
 
-.skills li, .languages li {
+.skills li, .languages li, .certifications li {
     margin-bottom: 5px;
 }
 
-/* Right Column Elements */
-.right-column header {
-    margin-bottom: 30px;
-    text-align: left;
-}
-
-.right-column h1 {
-    margin: 0;
+.right-column .header h1 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 2em;
     color: #333;
-    font-size: 2.2em;
-    font-weight: bold;
-}
-
-.right-column header p {
-    margin: 5px 0 0;
-    font-size: 1.1em;
-    color: #555;
-}
-
-.right-column h2 {
-    color: #007bff;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 5px;
-    margin-top: 25px;
-    margin-bottom: 15px;
-    font-size: 1.4em;
 }
 
 .summary p {
-    font-size: 1em;
+    font-size: 0.95em;
     margin-bottom: 20px;
 }
 
-.experience .job, .education .degree, .certifications .cert {
+.experience .job {
     margin-bottom: 20px;
-    page-break-inside: avoid;
 }
 
-.experience h3, .education h3, .certifications h3 {
-    margin: 0 0 5px 0;
+.experience h3 {
+    margin-bottom: 5px;
     font-size: 1.1em;
-    font-weight: bold;
 }
 
-.experience .date, .education .date, .certifications .date {
+.experience p em {
     font-style: italic;
     color: #555;
-    font-size: 0.9em;
-    margin-bottom: 5px;
-}
-
-.experience .company, .education .institution, .certifications .institution {
-    font-weight: bold;
-    color: #444;
-    margin-bottom: 5px;
+    display: block;
+    margin-bottom: 8px;
 }
 
 .experience ul {
     list-style: disc;
     margin-left: 20px;
     padding-left: 0;
-    font-size: 0.95em;
+    font-size: 0.9em;
 }
 
-.experience li {
-    margin-bottom: 5px;
+.education .degree {
+    margin-bottom: 15px;
+}
+
+.education h3 {
+     margin-bottom: 5px;
+    font-size: 1.1em;
+}
+
+.education p em {
+    font-style: italic;
+    color: #555;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
-        width: 95%;
-        margin: 10px auto;
+        margin: 10px;
+        padding: 10mm;
+        max-width: 100%;
         box-shadow: none;
     }
 
     .cv-page {
         flex-direction: column;
-        padding: 15px;
-        min-height: auto;
     }
 
-    .left-column, .right-column {
+    .left-column,
+    .right-column {
         width: 100%;
-        padding: 0;
-        border: none;
+        padding-right: 0;
+        padding-left: 0;
+        border-right: none;
     }
 
     .left-column {
-        margin-bottom: 20px;
         border-bottom: 1px solid #eee;
+        margin-bottom: 20px;
         padding-bottom: 20px;
     }
 
@@ -184,39 +187,14 @@ body {
         height: 100px;
     }
 
-    .right-column h1 {
+    .right-column .header h1 {
         font-size: 1.8em;
+        text-align: center;
     }
 
-    .right-column h2 {
-        font-size: 1.2em;
-    }
-}
-
-/* Print Specific Styles */
-@media print {
-    body {
-        background-color: #fff;
-        font-size: 10pt; /* Adjust font size for print */
-    }
-    .container {
-        margin: 0;
-        padding: 0;
-        box-shadow: none;
-        max-width: 100%;
-    }
-    .cv-page {
-        padding: 15mm 10mm; /* Adjust padding for print margins */
-        box-shadow: none;
-        border: none;
-        min-height: 277mm; /* Adjust height slightly for print */
-    }
-    #cv-en {
-        page-break-before: always;
-    }
-    a {
-        text-decoration: none;
-        color: inherit;
+    .lang-btn {
+        padding: 6px 10px;
+        margin: 2px;
     }
 }
 
