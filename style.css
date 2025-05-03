@@ -1,0 +1,222 @@
+/* General Styles */
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 210mm; /* A4 width */
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cv-page {
+    display: flex;
+    padding: 20mm 15mm; /* A4 padding */
+    min-height: 297mm; /* A4 height - adjust as needed */
+    box-sizing: border-box;
+}
+
+/* Add page break between language versions for printing */
+#cv-en {
+    page-break-before: always;
+}
+
+/* Columns */
+.left-column {
+    width: 35%;
+    padding-right: 20px;
+    border-right: 1px solid #eee;
+    box-sizing: border-box; /* Added for robustness */
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.right-column {
+    width: 65%;
+    padding-left: 20px;
+    box-sizing: border-box; /* Added for robustness */
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Left Column Elements */
+.profile-pic-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #eee;
+}
+
+.left-column h2 {
+    color: #007bff; /* Blue accent color */
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.contact-info p, .skills ul, .languages ul, .additional-info p {
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+
+.contact-info strong, .additional-info strong {
+    display: inline-block;
+    min-width: 80px; /* Align labels */
+}
+
+.skills ul, .languages ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skills li, .languages li {
+    margin-bottom: 5px;
+}
+
+/* Right Column Elements */
+.right-column header {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.right-column h1 {
+    margin: 0;
+    color: #333;
+    font-size: 2.2em;
+    font-weight: bold;
+}
+
+.right-column header p {
+    margin: 5px 0 0;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.right-column h2 {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+.summary p {
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+.experience .job, .education .degree, .certifications .cert {
+    margin-bottom: 20px;
+    page-break-inside: avoid;
+}
+
+.experience h3, .education h3, .certifications h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.experience .date, .education .date, .certifications .date {
+    font-style: italic;
+    color: #555;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.experience .company, .education .institution, .certifications .institution {
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+.experience ul {
+    list-style: disc;
+    margin-left: 20px;
+    padding-left: 0;
+    font-size: 0.95em;
+}
+
+.experience li {
+    margin-bottom: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        margin: 10px auto;
+        box-shadow: none;
+    }
+
+    .cv-page {
+        flex-direction: column;
+        padding: 15px;
+        min-height: auto;
+    }
+
+    .left-column, .right-column {
+        width: 100%;
+        padding: 0;
+        border: none;
+    }
+
+    .left-column {
+        margin-bottom: 20px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 20px;
+    }
+
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+
+    .right-column h1 {
+        font-size: 1.8em;
+    }
+
+    .right-column h2 {
+        font-size: 1.2em;
+    }
+}
+
+/* Print Specific Styles */
+@media print {
+    body {
+        background-color: #fff;
+        font-size: 10pt; /* Adjust font size for print */
+    }
+    .container {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        max-width: 100%;
+    }
+    .cv-page {
+        padding: 15mm 10mm; /* Adjust padding for print margins */
+        box-shadow: none;
+        border: none;
+        min-height: 277mm; /* Adjust height slightly for print */
+    }
+    #cv-en {
+        page-break-before: always;
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
